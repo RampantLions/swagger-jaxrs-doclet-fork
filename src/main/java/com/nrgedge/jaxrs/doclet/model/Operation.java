@@ -34,12 +34,7 @@ public class Operation {
         
         if ("array".equals(this.type)) {
         	this.items = new HashMap<String,String>();
-        	if (method.getGenericReturnType() != null && method.getGenericReturnType().startsWith("com")) {
-        		this.items.put("$ref", AnnotationHelper.typeOf(method.getGenericReturnType()));	
-        	} else {
-        		this.items.put("type", AnnotationHelper.typeOf(method.getGenericReturnType()));
-        	}
-        	
+        	this.items.put("type", AnnotationHelper.typeOf(method.getGenericReturnType()));
         }
         
         this.parameters = method.getParameters().isEmpty() ? null : method.getParameters();

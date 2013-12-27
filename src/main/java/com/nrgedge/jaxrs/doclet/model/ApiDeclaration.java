@@ -26,6 +26,20 @@ public class ApiDeclaration {
         this.resourcePath = resourcePath;
         this.apis = apis.isEmpty() ? null : apis;
         this.models = models.isEmpty() ? null : models;
+        
+        // update api item types to $refs if model exists
+        for(Api api : apis) {
+        	for (Operation operation : api.getOperations()) {
+        		if (operation.getItems() != null) {
+        			String type = operation.getItems().get("type");
+        			if (models.containsKey(type)) {
+        				operation.getItems().remove("type");
+        				operation.getItems().put("$ref", type);
+        			}
+        		}
+        	}
+        }
+        
     }
 
     public String getApiVersion() {
