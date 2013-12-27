@@ -16,7 +16,7 @@ Or check out the module from SVN.
 Then add the build plugin to your pom.
 
 {{{
-<build>
+    <build>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -46,3 +46,7 @@ Then add the build plugin to your pom.
         </plugins>
     </build>
 }}}
+
+See the original documentation for more details:
+
+https://github.com/ryankennedy/swagger-jaxrs-doclet
