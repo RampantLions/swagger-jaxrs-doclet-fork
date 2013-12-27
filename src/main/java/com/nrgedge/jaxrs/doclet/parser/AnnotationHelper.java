@@ -16,6 +16,7 @@ public class AnnotationHelper {
     private static final String JAX_RS_PATH_PARAM = "javax.ws.rs.PathParam";
     private static final String JAX_RS_QUERY_PARAM = "javax.ws.rs.QueryParam";
     private static final String JAX_RS_FORM_PARAM = "javax.ws.rs.FormParam";
+    private static final String CXF_MULTIPART_FORM_PARAM = "org.apache.cxf.jaxrs.ext.multipart.Multipart";
     private static final String JERSEY_MULTIPART_FORM_PARAM = "com.sun.jersey.multipart.FormDataParam";
     
     @SuppressWarnings("serial")
@@ -113,7 +114,7 @@ public class AnnotationHelper {
             return "path";
         } else if (p.isAnnotatedBy(JAX_RS_QUERY_PARAM)) {
             return "query";
-        } else if(p.isAnnotatedBy(JAX_RS_FORM_PARAM)|| p.isAnnotatedBy(JERSEY_MULTIPART_FORM_PARAM)) {
+        } else if(p.isAnnotatedBy(JAX_RS_FORM_PARAM) || p.isAnnotatedBy(JERSEY_MULTIPART_FORM_PARAM) || p.isAnnotatedBy(CXF_MULTIPART_FORM_PARAM)) {
         	return "form";
         }
         return "body";
