@@ -14,6 +14,8 @@ import static com.google.common.collect.Lists.transform;
 import static java.util.Arrays.asList;
 
 public class Property {
+	
+	private String $ref;
     private String type;
     private String description;
     private String containerOf;
@@ -74,6 +76,7 @@ public class Property {
         return Objects.equal(type, that.type)
                 && Objects.equal(description, that.description)
                 && Objects.equal(containerOf, that.containerOf)
+                && Objects.equal($ref, that.$ref)
                 && Objects.equal(allowableValues, that.allowableValues);
     }
 
@@ -86,9 +89,22 @@ public class Property {
     public String toString() {
         return Objects.toStringHelper(this)
                 .add("type", type)
+                .add("$ref", $ref)
                 .add("description", description)
                 .add("containerOf", containerOf)
                 .add("allowableValues", allowableValues)
                 .toString();
     }
+
+	public String get$ref() {
+		return $ref;
+	}
+
+	public void set$ref(String $ref) {
+		this.$ref = $ref;
+	}
+
+	public void setType(String type) {
+		this.type = type;
+	}
 }

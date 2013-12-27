@@ -38,6 +38,7 @@ public class DocletOptions {
         typesToTreatAsOpaque.add("org.joda.time.DateTime");
         typesToTreatAsOpaque.add("java.util.UUID");
         typesToTreatAsOpaque.add("T");
+        typesToTreatAsOpaque.add("java.lang.Class");
         translator = new FirstNotNullTranslator()
                 .addNext(new AnnotationAwareTranslator()
                         .ignore("javax.xml.bind.annotation.XmlTransient")
